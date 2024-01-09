@@ -17,16 +17,26 @@ public class CruddemoApplication {
 	}
 
 	@Bean
+	@Autowired
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 
 		return runner -> {
 //			createInstructor(appDAO);
 
-			findInstructor(appDAO);
+//			deleteInstructor(appDAO);
+
 		};
 	}
 
-	@Autowired
+
+	private void deleteInstructor(AppDAO appDAO) {
+		int theId = 1;
+		System.out.println("Deleting instructor id: "+ theId);
+		appDAO.deleteInstructorById(theId);
+		System.out.println("Done!");
+	}
+
+
 	private void findInstructor(AppDAO appDAO) {
 		int theId = 2;
 		System.out.println("Finding instructor id: " + theId);
@@ -37,20 +47,20 @@ public class CruddemoApplication {
 		System.out.println("the associate instructorDetail only: "+ tempInstructor.getInstructorDetail());
 	}
 
-	@Autowired
+
 	private void createInstructor(AppDAO appDAO) {
 
-		/*
-		// create the instructor
-		Instructor tempInstructor =
-				new Instructor("Chad", "Darby", "darby@luv2code.com");
 
-		// create the instructor detail
-		InstructorDetail tempInstructorDetail =
-				new InstructorDetail(
-						"http://www.luv2code.com/youtube",
-						"Luv 2 code!!!");
-		*/
+//		// create the instructor
+//		Instructor tempInstructor =
+//				new Instructor("Chad", "Darby", "darby@luv2code.com");
+//
+//		// create the instructor detail
+//		InstructorDetail tempInstructorDetail =
+//				new InstructorDetail(
+//						"http://www.luv2code.com/youtube",
+//						"Luv 2 code!!!");
+
 
 		// create the instructor
 		Instructor tempInstructor =
