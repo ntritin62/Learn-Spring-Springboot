@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyDemoLoggingAspect {
 
+
+
     @Pointcut("execution(* com.luv2code.aopdemo.dao.*.*(..))")
     private void forDaoPackage() {}
 
@@ -29,5 +31,10 @@ public class MyDemoLoggingAspect {
     @Before("forDaoPackageNoGetterSetter()")
     public void performApiAnalytics() {
         System.out.println("\n=====>>>> Performing API analytics");
+    }
+
+    @Before("forDaoPackageNoGetterSetter()")
+    public void logToCloudAsync() {
+        System.out.println("\n=====>>>> Logging to Cloud in async fashion");
     }
 }
