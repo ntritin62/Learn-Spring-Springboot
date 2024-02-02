@@ -19,7 +19,20 @@ public class MyDemoLoggingAspect {
     public Object aroundGetFortune(
             ProceedingJoinPoint theProceedingJoinPoint
     ) throws  Throwable {
-        return null;
+        String method = theProceedingJoinPoint.getSignature().toShortString();
+        System.out.println("\n=====>>>> Executing @Around on method: " + method);
+
+        long begin = System.currentTimeMillis();
+
+        Object result = theProceedingJoinPoint.proceed();
+
+        long end = System.currentTimeMillis();
+
+        long duration = end - begin;
+
+        System.out.println("\n=====> Duration: " + duration);
+
+        return result;
     }
 
     @After("execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))")
