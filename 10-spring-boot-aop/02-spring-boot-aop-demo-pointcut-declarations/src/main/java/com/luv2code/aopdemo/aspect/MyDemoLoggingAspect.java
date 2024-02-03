@@ -15,6 +15,8 @@ import java.util.List;
 @Order(2)
 public class MyDemoLoggingAspect {
 
+
+
     @Around("execution(* com.luv2code.aopdemo.service.*.getFortune(..))")
     public Object aroundGetFortune(
             ProceedingJoinPoint theProceedingJoinPoint
@@ -24,7 +26,15 @@ public class MyDemoLoggingAspect {
 
         long begin = System.currentTimeMillis();
 
-        Object result = theProceedingJoinPoint.proceed();
+        Object result = null;
+
+        try {
+            result = theProceedingJoinPoint.proceed();
+        } catch (Exception exc) {
+            System.out.println(exc.getMessage());
+
+            result = "Major accident! But no worries, your private AOP helicopter is on the way";
+        }
 
         long end = System.currentTimeMillis();
 
