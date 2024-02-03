@@ -33,7 +33,7 @@ public class MyDemoLoggingAspect {
         } catch (Exception exc) {
             System.out.println(exc.getMessage());
 
-            result = "Major accident! But no worries, your private AOP helicopter is on the way";
+            throw exc;
         }
 
         long end = System.currentTimeMillis();
