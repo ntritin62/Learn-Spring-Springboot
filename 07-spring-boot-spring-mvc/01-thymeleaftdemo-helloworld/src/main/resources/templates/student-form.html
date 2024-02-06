@@ -12,6 +12,14 @@
       <br><br>
         Last name: <input type="text" th:field="*{lastName}">
       <br><br>
+        Country:
+        <select th:field="*{country}">
+            <option th:value="Brazil">Brazil</option>
+            <option th:value="France">France</option>
+            <option th:value="Germany">Germany</option>
+            <option th:value="Indian">Indian</option>
+        </select>
+        <br><br>
       <input type="submit">
     </form>
 </body>
