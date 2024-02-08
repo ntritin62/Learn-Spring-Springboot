@@ -18,6 +18,9 @@
 
     <br><br>
     Free passes: <input type="text" th:field="*{freePasses}" />
+
+    <br><br>
+    Postal Code: <input type="text" th:field="*{postalCode}" />
     <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
     <br><br>
     <input type="submit" value="Submit">
