@@ -30,5 +30,11 @@ public class DemoLoggingAspect {
 
         String theMethod = theJointPoint.getSignature().toShortString();
         myLogger.info("====>> in @Before: calling method: " + theMethod);
+
+        Object[] args = theJointPoint.getArgs();
+
+        for(Object tempArg: args) {
+            myLogger.info("======>> argument: " +tempArg);
+        }
     }
 }
